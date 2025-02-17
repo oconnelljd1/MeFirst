@@ -3,33 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Player : MonoBehaviour
+namespace MeFirst
 {
-    public int Id => _id;
-    public int Initiative => _initiative;
-    [SerializeField] private TMP_InputField _initiativeInput;
-    private MeFirstController _controller;
-    private int _id;
-    private int _initiative;
-
-    public void Init(MeFirstController controller, int id)
+    public class Player : MonoBehaviour
     {
-        _controller = controller;
-        _id = id;
-    }
+        public int Id => _id;
+        public int Initiative => _initiative;
+        [SerializeField] private TMP_InputField _initiativeInput;
+        private MeFirstController _controller;
+        private int _id;
+        private int _initiative;
 
-    public void UpdateInitiative()
-    {
-        int newInitiative;
-        if(int.TryParse(_initiativeInput.text, out newInitiative))
+        public void Init(MeFirstController controller, int id)
         {
-            _initiative = newInitiative;
+            _controller = controller;
+            _id = id;
         }
-        _controller.Sort();
-    }
 
-    public void Delete()
-    {
-        _controller.Delete(_id);
+        public void UpdateInitiative()
+        {
+            int newInitiative;
+            if (int.TryParse(_initiativeInput.text, out newInitiative))
+            {
+                _initiative = newInitiative;
+            }
+            _controller.Sort();
+        }
+
+        public void Delete()
+        {
+            _controller.Delete(_id);
+        }
     }
 }
