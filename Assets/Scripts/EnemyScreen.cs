@@ -6,28 +6,30 @@ using TMPro;
 
 namespace MeFirst
 {
-    public class CharacterScreen : BaseScreen
+    public class EnemyScreen : BaseScreen
     {
         [SerializeField] private TMP_InputField _characterInput;
-        [SerializeField] private TMP_InputField _playerInput;
+        [SerializeField] private TMP_InputField _hpInput;
         [SerializeField] private TMP_InputField _initiativeInput;
         [SerializeField] private TMP_InputField _acInput;
 
-        private Character _character;
+        private Enemy _character;
 
-        public void Init(Character character)
+        public EnemyScreen Init(Enemy enemy)
         {
-            _character = character;
+            _character = enemy;
 
             _characterInput.text = _character.CharacterName;
-            _playerInput.text = _character.PlayerName;
+            _hpInput.text = _character.MaxHP.ToString();
             _initiativeInput.text = _character.Initiative.ToString();
             _acInput.text = _character.AC;
+
+            return this;
         }
 
         public void UpdateCharacter()
         {
-            _character.UpdateDisplay(_characterInput.text, _playerInput.text, _initiativeInput.text, _acInput.text);
+            _character.UpdateDisplay(_characterInput.text, _hpInput.text, _initiativeInput.text, _acInput.text);
         }
 
         public void OnDone()

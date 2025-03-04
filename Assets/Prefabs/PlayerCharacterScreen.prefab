@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 6583562719699633018}
   - component: {fileID: 2884655593595593873}
   m_Layer: 0
-  m_Name: CharacterScreen
+  m_Name: PlayerCharacterScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
